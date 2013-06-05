@@ -6,8 +6,8 @@
 #include<stdlib.h>
 
 static int process();
-int worker            = 1;
-int num_of_request    = 1;
+int worker            = 2;
+int num_of_request    = 10;
 int request_per_worker= num_of_request / worker;
 int stop              = 0;
 const char *server_config[]   = {"192.168.106.202", "1234"};
@@ -43,5 +43,5 @@ int process()
     for (count = 0; count < worker; ++count) {
         waitpid(pid[count], &status, 0);
     }
-
+    LOG(stderr, "child all stop\n");
 }

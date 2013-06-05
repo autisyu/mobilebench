@@ -12,6 +12,7 @@ void static inline sys_assert(int res, const char *sys_name)
 {
     if (res == -1) {
         fprintf(stderr, "%s error!\n", sys_name);
+	exit(-1);
     }
 }
 
@@ -19,6 +20,7 @@ void static inline res_assert(void *res, const char *name)
 {
     if (res == NULL) {
         fprintf(stderr, "%s error!\n", name);
+	exit(-1);
     }
 }
 #endif/*_UTIL_*/

@@ -1,5 +1,4 @@
 #include"worker.h"
-#define NOEVENT 0
 Worker::Worker(int request, const char* serv_ip, int serv_port)
 {
     LOG(stderr, "serv_ip = %s, serv_port = %d, request = %d\n", serv_ip, serv_port, request);
@@ -41,22 +40,37 @@ void Worker::dispatch()
 {
     long time_out = -1;
     time_out      = get_timeout();
-    int res, i;
+    int res, i, rstatus;
     while (1) {
+        LOG(stderr, "start event loop\n");
         res             = epoll_wait(epfd, events, num_connection, time_out);
 	sys_assert(res, "dispatch, epoll_wait");
+	LOG(stderr, "return event = %d\n", res);
+
 	for (i = 0; i < res; ++i) {
 	    connection *c   = (connection*)events[i].data.ptr; 
-	    c->call_back(c->fd, events[i].events, c->arg);
+	    LOG(stderr, "return fd= %d, call_back = %p\n", c->fd, c->call_back);
+	    rstatus         = c->call_back(c->fd, events[i].events, c->arg);
+	    switch (rstatus) {
+	        case STATESWITCH:
+		    LOG(stderr, "STATESWITCH\n");
+	            connection_mod(c);
+		    break;
+		case STATEERROR:
+		    reconnect(c->conn_id);
+		    break;
+	    }
 	}
+        LOG(stderr, "end event loop\n");
 	timeout_process();
     }
 }
 void Worker::do_work()
 {
     int conn_count = 0;
-    while (conn_count++ < num_connection) {
-       connection_add(conn_count- 1,EPOLLIN | EPOLLOUT); 
+    while (conn_count < num_connection) {
+       connection_add(conn_count,EPOLLOUT); 
+       conn_count++;
     }
     dispatch();
 }
@@ -77,19 +91,33 @@ void Worker::connection_set(int conn_num, int events)
    struct timeval now;
    gettimeofday(&now, NULL);
    int client_fd              = socket(AF_INET, SOCK_STREAM, 0);
+   setsocketopt()
    sys_assert(client_fd, "connection_set, socket");
-   int timeout                = rand() % 3;
+   int timeout                = rand() % 4;
+   strcpy(connptr[conn_num].packet, "hello world");
+   connptr[conn_num].conn_id  = conn_num;
    connptr[conn_num].time     = timeout;
    now.tv_sec                += timeout;
    connptr[conn_num].timeout  = now; 
    connptr[conn_num].events   = events;
    connptr[conn_num].state    = STATEW;
    connptr[conn_num].call_back= CallbackA::state_process;
+   connptr[conn_num].arg      = &connptr[conn_num];
    int res                    = connect(client_fd, (struct sockaddr*)&server_addr, sizeof(server_addr));
    LOG(stderr, "connect res = %d, client_fd = %d\n", res, client_fd);
    sys_assert(res, "connection_set, connect");
    connptr[conn_num].fd       = client_fd; 
 
+}
+
+void Worker::connection_mod(connection* c)
+{
+    LOG(stderr, "connection_mod, c = %p\n", c);
+    struct epoll_event epv = {0, {0}};
+    epv.events             = c->events;
+    epv.data.ptr           = c;
+    int res                = epoll_ctl(epfd, EPOLL_CTL_MOD, c->fd, &epv);
+    sys_assert(res, "connection_mod, epoll_ctl");
 }
 
 void Worker::connection_del(int conn_num)
@@ -102,7 +130,7 @@ void Worker::connection_del(int conn_num)
 }
 void Worker::reconnect(int conn_num)
 {
-    int events   = EPOLLIN;
+    int events   = EPOLLOUT;
     connection_del(conn_num);
     connection_add(conn_num, events);
 }
@@ -111,10 +139,14 @@ void Worker::timeout_process()
     struct timeval now;
     gettimeofday(&now, NULL);
     int conn_count = 0;
-    while (conn_count++ < num_connection) {
-        if (connptr[conn_count - 1].timeout.tv_sec > now.tv_sec) {
-	    reconnect(conn_count - 1);
+    while (conn_count < num_connection) {
+        if (connptr[conn_count].timeout.tv_sec < now.tv_sec && connptr[conn_count].time) {
+	    reconnect(conn_count);
+	    LOG(stderr, "timeout");
+	    getchar();
+	    getchar();
 	}
+	conn_count++;
     }
 }
 int Worker::get_timeout()

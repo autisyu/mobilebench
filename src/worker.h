@@ -40,6 +40,7 @@ class Worker
         void connection_add(int conn_num, int events);
         void connection_del(int conn_num);
         void connection_set(int conn_num, int events);
+        void connection_mod(connection *c);
         void timeout_process();
 	int  get_timeout();
         void signal_process();
