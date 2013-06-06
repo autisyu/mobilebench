@@ -109,7 +109,7 @@ int Process(int worker)
 static int UserMoniter()
 {
     char command[100];
-    int action, target, value1, value2, value;
+    int action = -1, target = -1, value1 = -1, value2 = -1, value;
     int con_per_worker;
     int res;
     char c;
@@ -119,6 +119,10 @@ static int UserMoniter()
 	printf("user_moniter>>");
         scanf("%s", command);
 	sscanf(command,"%d:%d:%d:%d",&action, &target, &value1, &value2);
+	if (action == -1 || target == -1 || value1 == -1 || value2 == -1) {
+	    MonitorUsage();
+	    continue;
+	}
 	con_per_worker = value2 / worker;
 	snprintf(command, sizeof(command), "%d:%d:%d:%d", action, target, value1, con_per_worker);
 	while (count < worker - 1) {
