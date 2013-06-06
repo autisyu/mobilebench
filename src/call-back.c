@@ -15,6 +15,7 @@ int CallbackA::state_process(int fd, int events, void *arg)
 	   if (res >= 0) {
                state = S_R;
                event = EPOLLIN; 
+               LOG(stderr, "state translate from S_W to S_R\n");
 	       return S_SWITCH;
 	   } else {
 	       return S_ERROR;
@@ -24,11 +25,12 @@ int CallbackA::state_process(int fd, int events, void *arg)
        case S_R:
            if (events & EPOLLIN) {
 	       res = read(fd, buf);
-
-	   if (res > 0) {
+	   if (res >= 0) {
                //state = STATER;
                //event = EPOLLIN; 
+               LOG(stderr, "state translate from S_R to S_O\n");
 	       //return STATESWITCH;
+               return S_OTHER;
 	   } else {
 	       return S_ERROR;
 	   }
@@ -56,9 +58,9 @@ int CallbackA::write(int fd, char *buf)
 int CallbackA::read(int fd, char *buf)
 {
    
-   int           res = recv(fd, buf, sizeof(buf), 0);
+   int           res = recv(fd, buf, 128, 0);
    sys_assert(res, "CallbackA::read, recv");
-   LOG(stderr, "recv memssage len = %d\n", res);
+   LOG(stderr, "recv memssage len = %d, sizeof(buf) = %d\n", res, sizeof(buf));
    return res;
 }
 

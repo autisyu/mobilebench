@@ -1,1 +1,420 @@
-start event loop, m_epfd = 6, m_events = 0x7fed9dda5010, max_conn = 70000
+timeout will happen at -1
+return event = 1
+pipe res = 81:2:1:50
+1:2:1:50
+add conn_num = 0
+add conn_num = 1
+add conn_num = 2
+add conn_num = 3
+add conn_num = 4
+add conn_num = 5
+add conn_num = 6
+add conn_num = 7
+add conn_num = 8
+add conn_num = 9
+add conn_num = 10
+add conn_num = 11
+add conn_num = 12
+add conn_num = 13
+add conn_num = 14
+add conn_num = 15
+add conn_num = 16
+add conn_num = 17
+add conn_num = 18
+add conn_num = 19
+add conn_num = 20
+add conn_num = 21
+add conn_num = 22
+add conn_num = 23
+add conn_num = 24
+add conn_num = 25
+add conn_num = 26
+add conn_num = 27
+add conn_num = 28
+add conn_num = 29
+add conn_num = 30
+add conn_num = 31
+add conn_num = 32
+add conn_num = 33
+add conn_num = 34
+add conn_num = 35
+add conn_num = 36
+add conn_num = 37
+add conn_num = 38
+add conn_num = 39
+add conn_num = 40
+add conn_num = 41
+add conn_num = 42
+add conn_num = 43
+add conn_num = 44
+add conn_num = 45
+add conn_num = 46
+add conn_num = 47
+add conn_num = 48
+add conn_num = 49
+add_connection = 50
+end event loop
+wake up at 1370522362
+timeout will happen at -1
+return event = 50
+state_process, fd = 7, events = 4, state = 4, connp = 0xb686f008
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb686f008
+state_process, fd = 8, events = 4, state = 4, connp = 0xb686f0ac
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb686f0ac
+state_process, fd = 9, events = 4, state = 4, connp = 0xb686f150
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb686f150
+state_process, fd = 10, events = 4, state = 4, connp = 0xb686f1f4
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb686f1f4
+state_process, fd = 11, events = 4, state = 4, connp = 0xb686f298
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb686f298
+state_process, fd = 12, events = 4, state = 4, connp = 0xb686f33c
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb686f33c
+state_process, fd = 13, events = 4, state = 4, connp = 0xb686f3e0
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb686f3e0
+state_process, fd = 14, events = 4, state = 4, connp = 0xb686f484
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb686f484
+state_process, fd = 15, events = 4, state = 4, connp = 0xb686f528
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb686f528
+state_process, fd = 16, events = 4, state = 4, connp = 0xb686f5cc
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb686f5cc
+state_process, fd = 17, events = 4, state = 4, connp = 0xb686f670
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb686f670
+state_process, fd = 18, events = 4, state = 4, connp = 0xb686f714
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb686f714
+state_process, fd = 19, events = 4, state = 4, connp = 0xb686f7b8
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb686f7b8
+state_process, fd = 20, events = 4, state = 4, connp = 0xb686f85c
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb686f85c
+state_process, fd = 21, events = 4, state = 4, connp = 0xb686f900
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb686f900
+state_process, fd = 22, events = 4, state = 4, connp = 0xb686f9a4
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb686f9a4
+state_process, fd = 23, events = 4, state = 4, connp = 0xb686fa48
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb686fa48
+state_process, fd = 24, events = 4, state = 4, connp = 0xb686faec
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb686faec
+state_process, fd = 25, events = 4, state = 4, connp = 0xb686fb90
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb686fb90
+state_process, fd = 26, events = 4, state = 4, connp = 0xb686fc34
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb686fc34
+state_process, fd = 27, events = 4, state = 4, connp = 0xb686fcd8
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb686fcd8
+state_process, fd = 28, events = 4, state = 4, connp = 0xb686fd7c
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb686fd7c
+state_process, fd = 29, events = 4, state = 4, connp = 0xb686fe20
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb686fe20
+state_process, fd = 30, events = 4, state = 4, connp = 0xb686fec4
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb686fec4
+state_process, fd = 31, events = 4, state = 4, connp = 0xb686ff68
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb686ff68
+state_process, fd = 32, events = 4, state = 4, connp = 0xb687000c
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb687000c
+state_process, fd = 33, events = 4, state = 4, connp = 0xb68700b0
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb68700b0
+state_process, fd = 34, events = 4, state = 4, connp = 0xb6870154
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb6870154
+state_process, fd = 35, events = 4, state = 4, connp = 0xb68701f8
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb68701f8
+state_process, fd = 36, events = 4, state = 4, connp = 0xb687029c
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb687029c
+state_process, fd = 37, events = 4, state = 4, connp = 0xb6870340
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb6870340
+state_process, fd = 38, events = 4, state = 4, connp = 0xb68703e4
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb68703e4
+state_process, fd = 39, events = 4, state = 4, connp = 0xb6870488
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb6870488
+state_process, fd = 40, events = 4, state = 4, connp = 0xb687052c
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb687052c
+state_process, fd = 41, events = 4, state = 4, connp = 0xb68705d0
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb68705d0
+state_process, fd = 42, events = 4, state = 4, connp = 0xb6870674
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb6870674
+state_process, fd = 43, events = 4, state = 4, connp = 0xb6870718
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb6870718
+state_process, fd = 44, events = 4, state = 4, connp = 0xb68707bc
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb68707bc
+state_process, fd = 45, events = 4, state = 4, connp = 0xb6870860
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb6870860
+state_process, fd = 46, events = 4, state = 4, connp = 0xb6870904
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb6870904
+state_process, fd = 47, events = 4, state = 4, connp = 0xb68709a8
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb68709a8
+state_process, fd = 48, events = 4, state = 4, connp = 0xb6870a4c
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb6870a4c
+state_process, fd = 49, events = 4, state = 4, connp = 0xb6870af0
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb6870af0
+state_process, fd = 50, events = 4, state = 4, connp = 0xb6870b94
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb6870b94
+state_process, fd = 51, events = 4, state = 4, connp = 0xb6870c38
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb6870c38
+state_process, fd = 52, events = 4, state = 4, connp = 0xb6870cdc
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb6870cdc
+state_process, fd = 53, events = 4, state = 4, connp = 0xb6870d80
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb6870d80
+state_process, fd = 54, events = 4, state = 4, connp = 0xb6870e24
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb6870e24
+state_process, fd = 55, events = 4, state = 4, connp = 0xb6870ec8
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb6870ec8
+state_process, fd = 56, events = 4, state = 4, connp = 0xb6870f6c
+send memssage len = 11, errno = 0
+state translate from S_W to S_R
+connection_mod, c = 0xb6870f6c
+end event loop
+wake up at 1370522362
+timeout will happen at -1
+return event = 46
+state_process, fd = 7, events = 1, state = 3, connp = 0xb686f008
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 8, events = 1, state = 3, connp = 0xb686f0ac
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 9, events = 1, state = 3, connp = 0xb686f150
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 10, events = 1, state = 3, connp = 0xb686f1f4
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 11, events = 1, state = 3, connp = 0xb686f298
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 12, events = 1, state = 3, connp = 0xb686f33c
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 13, events = 1, state = 3, connp = 0xb686f3e0
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 14, events = 1, state = 3, connp = 0xb686f484
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 15, events = 1, state = 3, connp = 0xb686f528
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 16, events = 1, state = 3, connp = 0xb686f5cc
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 17, events = 1, state = 3, connp = 0xb686f670
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 18, events = 1, state = 3, connp = 0xb686f714
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 19, events = 1, state = 3, connp = 0xb686f7b8
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 20, events = 1, state = 3, connp = 0xb686f85c
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 21, events = 1, state = 3, connp = 0xb686f900
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 22, events = 1, state = 3, connp = 0xb686f9a4
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 23, events = 1, state = 3, connp = 0xb686fa48
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 24, events = 1, state = 3, connp = 0xb686faec
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 25, events = 1, state = 3, connp = 0xb686fb90
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 26, events = 1, state = 3, connp = 0xb686fc34
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 27, events = 1, state = 3, connp = 0xb686fcd8
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 28, events = 1, state = 3, connp = 0xb686fd7c
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 29, events = 1, state = 3, connp = 0xb686fe20
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 30, events = 1, state = 3, connp = 0xb686fec4
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 31, events = 1, state = 3, connp = 0xb686ff68
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 32, events = 1, state = 3, connp = 0xb687000c
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 33, events = 1, state = 3, connp = 0xb68700b0
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 34, events = 1, state = 3, connp = 0xb6870154
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 35, events = 1, state = 3, connp = 0xb68701f8
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 36, events = 1, state = 3, connp = 0xb687029c
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 37, events = 1, state = 3, connp = 0xb6870340
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 38, events = 1, state = 3, connp = 0xb68703e4
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 39, events = 1, state = 3, connp = 0xb6870488
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 40, events = 1, state = 3, connp = 0xb687052c
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 41, events = 1, state = 3, connp = 0xb68705d0
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 42, events = 1, state = 3, connp = 0xb6870674
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 43, events = 1, state = 3, connp = 0xb6870718
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 44, events = 1, state = 3, connp = 0xb68707bc
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 45, events = 1, state = 3, connp = 0xb6870860
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 46, events = 1, state = 3, connp = 0xb6870904
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 47, events = 1, state = 3, connp = 0xb68709a8
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 48, events = 1, state = 3, connp = 0xb6870a4c
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 49, events = 1, state = 3, connp = 0xb6870af0
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 50, events = 1, state = 3, connp = 0xb6870b94
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 51, events = 1, state = 3, connp = 0xb6870c38
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 52, events = 1, state = 3, connp = 0xb6870cdc
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+end event loop
+wake up at 1370522362
+timeout will happen at -1
+return event = 4
+state_process, fd = 53, events = 1, state = 3, connp = 0xb6870d80
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 54, events = 1, state = 3, connp = 0xb6870e24
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 55, events = 1, state = 3, connp = 0xb6870ec8
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+state_process, fd = 56, events = 1, state = 3, connp = 0xb6870f6c
+recv memssage len = 6, sizeof(buf) = 4
+state translate from S_R to S_O
+end event loop
+wake up at 1370522362
+timeout will happen at -1

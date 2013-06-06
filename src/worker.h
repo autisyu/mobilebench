@@ -9,6 +9,8 @@
 #include<stdlib.h>
 //#include<file.h>
 #include<vector>
+#include<functional>
+#include<queue>
 #include<sys/time.h>
 #include<malloc.h>
 #include<sys/epoll.h>
@@ -41,7 +43,7 @@ class Worker
 {
     private:
         struct epoll_event  *m_events;
-        std::vector<int>     m_heap_timer;
+        std::priority_queue<int,std::vector<int>, std::greater<int> >     m_heap_timer;
         struct connection   *m_connptr, m_monitor;
 	int                  m_epfd;
         char                 m_server_ip[64];
@@ -53,23 +55,23 @@ class Worker
     public:
         Worker(const char *server_ip, int server_port);
         ~Worker();
-	void start();
+	void Start();
     private:
-        void write_log(const char *fmt, ...);
-	void start_log();
-        void config_server(const char *serv_ip, int serv_port);
-        void reconnect(int conn_num);
-        void do_work();
-        void connection_add(int conn_num, int events, int type);
-        void connection_del(int conn_num);
-        void connection_set(int conn_num, int events, int type);
-        void connection_mod(connection *c);
-        void timeout_process();
-	int  get_timeout();
-	int  add_timer(int timeout, int conn_num);
-	int  add_connection(int timeout, int conn_num);
-        int  command_process(int fd, int events, void* arg);
-	void add_monitor();
-	void dispatch();
+        void WriteLog(const char *fmt, ...);
+	void StartLog();
+        void ConfigServer(const char *serv_ip, int serv_port);
+        void Reconnect(int conn_num);
+        void DoWork();
+        void ConnectionAdd(int conn_num, int events, int type);
+        void ConnectionDel(int conn_num);
+        void ConnectionSet(int conn_num, int events, int type);
+        void ConnectionMod(connection *c);
+        void TimeoutProcess();
+	int  GetTimeout();
+	int  AddTimer(int timeout, int conn_num);
+	int  AddConnection(int timeout, int conn_num);
+        int  CommandProcess(int fd, int events, void* arg);
+	void AddMonitor();
+	void Dispatch();
 };
 #endif /*_WORKER_H*/
