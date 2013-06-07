@@ -5,21 +5,28 @@
 #include "connection.h"
 #include "util.h"
 #include <string.h>
+typedef int (*StateProcess_t)(int fd, int events, void* arg);
 class Callback
 {
     public:
-        virtual int state_process(int fd, int events, void *arg) = 0;
+        virtual int StateProcess(int fd, int events, void *arg) = 0;
     protected:
-        virtual int read(int fd, int events, void *arg)  = 0;
-        virtual int write(int fd, int events, void *arg) = 0;
+        virtual int Read(int fd, int events, void *arg)  = 0;
+        virtual int Write(int fd, int events, void *arg) = 0;
 };
 
 class CallbackA
 {
     public:
-        int static state_process(int fd, int events, void *arg);
+        int static StateProcess(int fd, int events, void *arg);
     private:
-        int static read(int fd, char* buf);
-        int static write(int fd, char* buf);
+        int static Read(int fd, char* buf);
+        int static Write(int fd, char* buf);
+};
+
+class CallbackFactory
+{
+    public:
+         StateProcess_t static ReturnCallback(int type);
 };
 #endif

@@ -25,7 +25,7 @@ static void Usage()
 }
 static void MonitorUsage()
 {
-    printf("command line, you can only use number like action:target:value1:value2\n\ 
+    printf("command line, you can only use number like action:target:value1:value2\n\
            action :\n\
            ADD    :1\n\
            target :\n\
@@ -91,6 +91,8 @@ int Process(int worker)
 		w->m_info.set_id(count);
 		close(pipe_fd[count][1]);
 		w->Start();
+		delete w;
+		w = NULL;
 	        break;
 	    default:
 		close(pipe_fd[count][0]);

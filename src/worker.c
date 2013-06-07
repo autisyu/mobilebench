@@ -85,7 +85,7 @@ void Worker::Dispatch()
 		continue;
 	    }
 	    //WriteLog("return fd= %d, call_back = %p\n", c->fd, c->call_back);
-	    rstatus         = c->call_back(c->fd,m_events[i].events, c->arg);
+	    rstatus         = c->StateProcess(c->fd,m_events[i].events, c->arg);
 	    switch (rstatus) {
 	        case S_SWITCH:
 		    //WriteLog("STATESWITCH\n");
@@ -103,7 +103,7 @@ void Worker::Dispatch()
 
 void Worker::ConnectionAdd(int conn_num, int events, int type)
 {
-   WriteLog("add conn_num = %d\n", conn_num);
+   //WriteLog("add conn_num = %d\n", conn_num);
    struct connection *connptr = m_connptr;
    ConnectionSet(conn_num, events, type);
    struct epoll_event epv = {0, {0}};
@@ -129,7 +129,7 @@ void Worker::ConnectionSet(int conn_num, int events, int type)
    connptr[conn_num].timeout.tv_sec  = 0; 
    connptr[conn_num].events          = events;
    connptr[conn_num].state           = S_W;
-   connptr[conn_num].call_back       = CallbackA::state_process;
+   connptr[conn_num].StateProcess    = CallbackFactory::ReturnCallback(type);
    connptr[conn_num].type            = type;
    connptr[conn_num].arg             = &connptr[conn_num];
    
@@ -183,7 +183,7 @@ void Worker::TimeoutProcess()
     int conn_count = 0;
     int total_conn = m_info.get_num_connection();
     while (conn_count < total_conn) {
-        WriteLog("now.tv_sec = %d, target.tv_sec = %d\n", now.tv_sec, connptr[conn_count].timeout.tv_sec);
+        //WriteLog("now.tv_sec = %d, target.tv_sec = %d\n", now.tv_sec, connptr[conn_count].timeout.tv_sec);
         if (connptr[conn_count].timeout.tv_sec <= now.tv_sec && connptr[conn_count].timeout.tv_sec) {
 	    Reconnect(conn_count);
 	    m_connptr[conn_count].timeout.tv_sec = 0;
@@ -250,7 +250,7 @@ int Worker::CommandProcess(int fd, int events, void *arg)
     char buf_command[100];
     int res = read(fd, buf_command, sizeof(buf_command));
     buf_command[res] = '\0';
-    WriteLog("pipe res = %d", res);
+    //WriteLog("pipe res = %d\n", res);
     sys_assert(res, "CommandProcess, read");
     WriteLog("%s\n", buf_command);
     sscanf(buf_command, "%d:%d:%d:%d", &command, &target, &value1, &value2);

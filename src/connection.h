@@ -26,8 +26,9 @@ class connection
         //int time;
         struct timeval timeout;
         char packet[128];
+	int data_len, offset;
         void *arg;
-        int (*call_back)(int fd, int events, void *arg);
+        int (*StateProcess)(int fd, int events, void *arg);
 	//Callback call_back;
 };
 #endif/*_CONNECTION_*/
