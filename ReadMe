@@ -1,0 +1,44 @@
+1. description
+This prosess aim at test of mobile server for long connection
+
+2. function
+a)add connection to test process, while you can't delete now
+
+b)add timer to test process, you can add more than one which will queued in priority queue by time
+
+3.usage
+This process is designed to usa as interactive and deamon which read command from file, deamon is now impliemted now.
+now you can only use number to process command. 
+
+command format is action:target:value1:value2,
+
+'action' has only one 'Add' now, 
+
+'target' can be 'Timer' or 'connection',
+
+'value1' can be connection type or time of timeout
+
+'value2' can only be connection affected by the command
+
+translate table:
+ADD: 1 
+
+Timer: 1
+connection:2
+
+connection type: (0-maxInt)
+timeout time: (1-maxInt)
+
+affected connection: (1-maxInt )
+
+example:
+1:2:0:60000, just means you add 60000 type 0 connection.
+
+notice:
+1. you can only look log file to see whether you command success or not
+
+2. you'd add connection before add timer
+
+3. socket is block option, may olny be used for small mount data translation.
+
+
