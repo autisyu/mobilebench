@@ -8,10 +8,10 @@ b)add timer to test process, you can add more than one which will queued in prio
 
 
 3.usage
-This process is designed to usa as interactive and deamon which read command from file, deamon is now impliemted now.
+This process is designed to use as interactive and deamon which read command from file, deamon is now implemented now.
 now you can only use number to process command. 
 
-a)start process like this mobile-bench -h hostip -p hostport -w worker number
+a)start process like this mobile-bench -h hostip -p hostport -w workernum 
 worker number used to balance workerload 
 
 b)command format is action:target:value1:value2,
