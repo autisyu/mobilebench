@@ -6,11 +6,15 @@ a)add connection to test process, while you can't delete now
 
 b)add timer to test process, you can add more than one which will queued in priority queue by time
 
+
 3.usage
 This process is designed to usa as interactive and deamon which read command from file, deamon is now impliemted now.
 now you can only use number to process command. 
 
-command format is action:target:value1:value2,
+a)start process like this mobile-bench -h hostip -p hostport -w worker number
+worker number used to balance workerload 
+
+b)command format is action:target:value1:value2,
 
 'action' has only one 'Add' now, 
 
@@ -40,5 +44,3 @@ notice:
 2. you'd add connection before add timer
 
 3. socket is block option, may olny be used for small mount data translation.
-
-
