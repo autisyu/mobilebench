@@ -11,6 +11,6 @@ worker.o:worker.c
 
 mobile-bench.o:mobile-bench.c
 	g++ -c mobile-bench.c $(debug) -o mobile-bench.o
-
-all:
-	rm *.o mobile-bench
+clean:
+	rm *.o
+all: clean mobile-bench

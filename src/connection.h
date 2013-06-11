@@ -1,7 +1,7 @@
 #ifndef _CONNECTION_
 #define _CONNECTION_
-#include<sys/time.h>
 #include "call-back.h"
+#include<sys/time.h>
 #include <errno.h>
 #define UNCONNECT   0
 #define S_1       1
@@ -31,4 +31,20 @@ class connection
         int (*StateProcess)(int fd, int events, void *arg);
 	//Callback call_back;
 };
+
+typedef struct 
+{
+    int action;
+    int target;
+    int param1;
+    int param2; 
+}command_t;
+
+static void SetCommand(command_t &cmd, int action, int target, int param1, int param2)
+{
+    cmd.action = action;
+    cmd.target = target;
+    cmd.param1 = param1;
+    cmd.param2= param2;
+}
 #endif/*_CONNECTION_*/

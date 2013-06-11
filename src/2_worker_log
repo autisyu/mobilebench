@@ -1,0 +1,9 @@
+1:1:2:4
+1:1:2:4
+AddTimer at 1370784557, timeout = 2, conn_num = 4
+AddTimer, total = 0
+end event loop
+wake up at 1370784557
+end event loop
+wake up at 1370784559
+timeout at 1370784559

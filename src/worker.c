@@ -74,10 +74,10 @@ void Worker::Dispatch()
     while (1) {
         //WriteLog("start event loop, m_epfd = %d, m_events = %p, max_conn = %d\n", m_epfd, m_events, m_info.get_max_connection());
         time_out        = GetTimeout();
-	WriteLog("timeout will happen at %d\n", time_out);
+	//WriteLog("timeout will happen at %d\n", time_out);
         res             = epoll_wait(m_epfd, m_events, m_info.get_max_connection(), time_out * 1000);
 	sys_assert(res, "dispatch, epoll_wait");
-	WriteLog("return event = %d\n", res);
+	//WriteLog("return event = %d\n", res);
 	for (i = 0; i < res; ++i) {
 	    connection *c   = (connection*)m_events[i].data.ptr; 
 	    if (c == &m_monitor) {
@@ -147,7 +147,7 @@ void Worker::ConnectionSet(int conn_num, int events, int type)
 
 void Worker::ConnectionMod(connection* c)
 {
-    WriteLog("ConnectionMod, c = %p\n", c);
+    //WriteLog("ConnectionMod, c = %p\n", c);
     struct epoll_event epv = {0, {0}};
     epv.events             = c->events;
     epv.data.ptr           = c;
@@ -244,29 +244,27 @@ int  Worker::AddConnection(int conn_num, int type)
 }
 int Worker::CommandProcess(int fd, int events, void *arg)
 {
+    command_t cmd;
     connection *connp  = (connection*)arg;
-    int command, target;
-    unsigned int value1, value2;
-    char buf_command[100];
-    int res = read(fd, buf_command, sizeof(buf_command));
-    buf_command[res] = '\0';
-    //WriteLog("pipe res = %d\n", res);
+    int res            = read(fd, &cmd, sizeof(command_t));
     sys_assert(res, "CommandProcess, read");
-    WriteLog("%s\n", buf_command);
-    sscanf(buf_command, "%d:%d:%d:%d", &command, &target, &value1, &value2);
-    WriteLog("%d:%d:%d:%d\n", command, target, value1, value2);
+    int action         = cmd.action;
+    int target         = cmd.target;
+    int param1         = cmd.param1;
+    int param2         = cmd.param2;
+    WriteLog("cmd.action = %d, cmd.target = %d, cmd.param1 = %d, cmd.param2 = %d\n", action, target, param1, param2);
     unsigned int timeout, conn_num, type;
-    switch (command) {
+    switch (action) {
         case C_ADD:
             switch (target) {
 	        case T_TIMER:
-		    timeout   = value1;
-		    conn_num  = value2;
+		    timeout   = param1;
+		    conn_num  = param2;
 		    AddTimer(timeout, conn_num);
 	            break;
 	        case T_CONN:
-		    type      = value1;
-		    conn_num  = value2; 
+		    type      = param1;
+		    conn_num  = param2; 
 		    res       = AddConnection(conn_num, type);
 		    WriteLog("AddConnection = %d\n", res);
 	            break;

@@ -2,9 +2,9 @@
 #define _CALLBACK_
 #include<sys/epoll.h>
 #include<sys/socket.h>
+#include <string.h>
 #include "connection.h"
 #include "util.h"
-#include <string.h>
 typedef int (*StateProcess_t)(int fd, int events, void* arg);
 class Callback
 {

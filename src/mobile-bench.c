@@ -1,4 +1,5 @@
 #include "worker.h"
+#include "connection.h"
 #include "util.h"
 #include<sys/types.h>
 #include<sys/wait.h>
@@ -111,29 +112,30 @@ int Process(int worker)
 static int UserMoniter()
 {
     char command[100];
-    int action = -1, target = -1, value1 = -1, value2 = -1, value;
+    int action = -1, target = -1, param1 = -1, param2 = -1, value;
     int con_per_worker;
     int res;
     char c;
+    command_t cmd;
     MonitorUsage();
     while (1) {
         int count = 0;
 	printf("user_moniter>>");
         scanf("%s", command);
-	sscanf(command,"%d:%d:%d:%d",&action, &target, &value1, &value2);
-	if (action == -1 || target == -1 || value1 == -1 || value2 == -1) {
+	sscanf(command,"%d:%d:%d:%d",&action, &target, &param1, &param2);
+	if (action == -1 || target == -1 || param1 == -1 || param2 == -1) {
 	    MonitorUsage();
 	    continue;
 	}
-	con_per_worker = value2 / worker;
-	snprintf(command, sizeof(command), "%d:%d:%d:%d", action, target, value1, con_per_worker);
+	con_per_worker = param2 / worker;
+	SetCommand(cmd, action, target, param1, con_per_worker);
 	while (count < worker - 1) {
-	    res = write(pipe_fd[count][1],command, strlen(command));
+	    res = write(pipe_fd[count][1],&cmd, sizeof(command_t));
 	    sys_assert(res, "write, user_moniter");
 	    count++;
 	}
-	snprintf(command, sizeof(command), "%d:%d:%d:%d", action, target, value1, value2 - (worker - 1) * con_per_worker);
-	res = write(pipe_fd[count][1],command, strlen(command));
+	SetCommand(cmd, action, target, param1, param2 - (worker - 1) * con_per_worker);
+	res = write(pipe_fd[count][1],&cmd, sizeof(command_t));
 	sys_assert(res, "write, user_moniter");
     }
 }

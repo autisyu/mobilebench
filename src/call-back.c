@@ -2,7 +2,7 @@
 int CallbackA::StateProcess(int fd, int events, void *arg)
 {
    connection *connp  = (connection*)arg;
-   LOG(stderr, "state_process, fd = %d, events = %x, state = %d, connp = %p\n", fd, events, connp->state, connp);
+   //LOG(stderr, "state_process, fd = %d, events = %x, state = %d, connp = %p\n", fd, events, connp->state, connp);
    fd                 = connp->fd;
    char *buf          = connp->packet;
    int &state         = connp->state;
@@ -60,7 +60,7 @@ int CallbackA::Read(int fd, char *buf)
    
    int           res = recv(fd, buf, 128, 0);
    sys_assert(res, "CallbackA::read, recv");
-   LOG(stderr, "recv memssage len = %d, sizeof(buf) = %d\n", res, sizeof(buf));
+   //LOG(stderr, "recv memssage len = %d, sizeof(buf) = %d\n", res, sizeof(buf));
    return res;
 }
 StateProcess_t CallbackFactory::ReturnCallback(int type)
